@@ -15,6 +15,12 @@
 			"include": "#variables"
 		},
 		{
+			"include": "#number"
+		},
+		{
+			"include": "#operators"
+		},
+		{
 			"include": "#eos"
 		}
 	],
@@ -30,18 +36,26 @@
 				"match": "\\b(jump|lab)\\b"
 			}, {
 				"name": "keyword.other.baabnq",
-				"match": "\\b(put|print|input|use)\\b"
+				"match": "\\b(put|print|input|use|putchr)\\b"
 			}, {
 				"name": "entity.name.function",
 				"match": "\\b(pull|push|sub|return)\\b"
 			}, {
 				"name": "entity.name.class",
-				"match": "\\b(new|static|->|<-)\\b"
+				"match": "(\\b(new|static|free)\\b)|( (->|<-) )"
 			}]
 		},
 		"variables": {
 			"match": "\\b_\\w+\\b",
 			"name": "variable.baabnq"
+		},
+		"operators": {
+			"match": " (=|\\+|-|>>|<<|~|>|<|==|!=) ",
+			"name": "keyword.operator.new"
+		},
+		"number": {
+			"match": "\\b\\d+\\b",
+			"name": "constant.numeric.baabnq"
 		},
 		"strings": {
 			"name": "string.quoted.double.baabnq",
@@ -55,7 +69,7 @@
 			]
 		},
 		"eos": {
-			"name": "constant.language",
+			"name": "punctuation.terminator.statement.baabnq",
 			"match": ";"
 		}
 	},
