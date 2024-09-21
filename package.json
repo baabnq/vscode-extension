@@ -2,10 +2,12 @@
   "name": "baabnq",
   "displayName": "Baabnq",
   "description": "Baabnq language support",
+  "publisher": "baabnq",
   "repository": {
     "type": "git",
     "url": "https://github.com/baabnq/vscode-extension"
   },
+  "icon": "logo.png",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.93.0"
