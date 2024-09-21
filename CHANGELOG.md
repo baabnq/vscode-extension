@@ -1,9 +1,14 @@
 # Change Log
 
-All notable changes to the "baabnq" extension will be documented in this file.
-
-Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
+All notable changes to this project will be documented in this file.
+This format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0).
 
 ## [Unreleased]
 
-- Initial release
+## [0.0.1] - 2024-09-21
+
+### Added
+
+- Syntax highlighting for baabnq source files.
+- Remote Runner under [The Baabnq Web IDE](https://baabnq.eu.pythonanywhere.com).
+
