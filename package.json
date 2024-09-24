@@ -15,28 +15,44 @@
   "categories": [
     "Programming Languages"
   ],
-  "main": "./src/extension.js",
+  "main": "./src/desktop.js",
+  "browser": "./src/browser.js",
   "contributes": {
-    "languages": [{
-      "id": "baabnq",
-      "aliases": ["baabnq", "baabnq"],
-      "extensions": [".baabnq"],
-      "configuration": "./language-configuration.json"
-    }],
-    "grammars": [{
-      "language": "baabnq",
-      "scopeName": "source.baabnq",
-      "path": "./syntaxes/baabnq.tmLanguage.json"
-    }],
-    "commands": [{
-      "command": "baabnq.run",
-      "title": "Run Baabnq"
-    }],
-    "keybindings":  [{
-      "command": "baabnq.run",
-      "key": "F5",
-      "when": "editorLangId == baabnq"
-    }]
-
+    "languages": [
+      {
+        "id": "baabnq",
+        "aliases": [
+          "baabnq",
+          "baabnq"
+        ],
+        "extensions": [
+          ".baabnq"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "baabnq",
+        "scopeName": "source.baabnq",
+        "path": "./syntaxes/baabnq.tmLanguage.json"
+      }
+    ],
+    "commands": [
+      {
+        "command": "baabnq.run",
+        "title": "Run Baabnq"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "baabnq.run",
+        "key": "F5",
+        "when": "editorLangId == baabnq"
+      }
+    ]
+  },
+  "dependencies": {
+    "@vscode/test-web": "^0.0.60"
   }
 }

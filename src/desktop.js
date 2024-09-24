@@ -52,7 +52,7 @@ async function run()
         outputPannel.clear();
         outputPannel.append(output);
     }, () => {
-        outputPannel.clear(),
+        outputPannel.clear();
         outputPannel.append("Error: Remote Runner not reachable, check your internet connection");
     });
 
