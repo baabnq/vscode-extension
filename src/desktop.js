@@ -2,6 +2,8 @@ const vscode = require('vscode');
 const https = require('https');
 
 var outputPannel;
+const host = 'baabnq.eu.pythonanywhere.com';
+const path = "/run";
 
 function httpsPost({body, ...options}) {
     return new Promise((resolve,reject) => {
@@ -38,8 +40,8 @@ async function run()
 
     const res = httpsPost({
         method: 'POST',
-        hostname: 'baabnq.eu.pythonanywhere.com',
-        path: '/run',
+        hostname: host,
+        path: path,
         headers : {
             'Content-Type': 'application/json;charset=UTF-8'
         },
