@@ -1,6 +1,11 @@
 const vscode = require('vscode');
 const https = require('https');
 
+
+function getConfig() {
+    return vscode.workspace.getConfiguration();
+}
+
 var outputPannel;
 const host = 'baabnq.eu.pythonanywhere.com';
 const path = "/run";
@@ -28,10 +33,15 @@ function httpsPost({body, ...options}) {
 
 async function run()
 {
+    const config = getConfig();
+
     const document = vscode.window.activeTextEditor?.document;
     if (!document) return;
 
-    if (!document.isUntitled) document.save();
+    if (document.isDirty    && config.get('interact.saveOnRun') ) document.save();
+    if (document.isUntitled && config.get('interact.forceTitle'))
+        vscode.workspace.saveAs(document.uri);
+
     const text = document.getText();
 
     outputPannel.show(true);
@@ -68,18 +78,12 @@ function activate(ctx)
 {
     outputPannel = vscode.window.createOutputChannel("Code");
 
-
     const runCommand = vscode.commands.registerCommand(
         'baabnq.run', 
         run
     );
     ctx.subscriptions.push(runCommand);
-
-
 }
-
-
-
 
 function deactivate() {}
 

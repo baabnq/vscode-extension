@@ -50,6 +50,22 @@
         "key": "F5",
         "when": "editorLangId == baabnq"
       }
-    ]
+    ],
+    "configuration": {
+      "title": "Baabnq",
+      "type": "object",
+      "properties": {
+        "interact.forceTitle": {
+          "type": "boolean",
+          "default": true,
+          "description": "Require document to have title when running program."
+        },
+        "interact.saveOnRun": {
+          "type": "boolean",
+          "default": false,
+          "description": "Save document when running program."
+        }
+      }
+    }
   }
 }
