@@ -7,8 +7,6 @@ function getConfig() {
 }
 
 var outputPannel;
-const host = 'baabnq.eu.pythonanywhere.com';
-const path = "/run";
 
 function httpsPost({body, ...options}) {
     return new Promise((resolve,reject) => {
@@ -29,6 +27,14 @@ function httpsPost({body, ...options}) {
     })
 }
 
+function showOutput(content)
+{
+    outputPannel.show(true);
+    outputPannel.clear();
+    outputPannel.appendLine(content);
+}
+
+
 
 
 async function run()
@@ -43,15 +49,10 @@ async function run()
         vscode.workspace.saveAs(document.uri);
 
     const text = document.getText();
-
-    outputPannel.show(true);
-    outputPannel.clear();
-    outputPannel.appendLine("[Running...]");
-
     const res = httpsPost({
         method: 'POST',
-        hostname: host,
-        path: path,
+        hostname: config.get('run.host'),
+        path:     config.get('run.path'),
         headers : {
             'Content-Type': 'application/json;charset=UTF-8'
         },
@@ -60,13 +61,12 @@ async function run()
         })
     })
 
-    res.then((output) => {
-        outputPannel.clear();
-        outputPannel.append(output);
-    }, () => {
-        outputPannel.clear();
-        outputPannel.append("Error: Remote Runner not reachable, check your internet connection");
-    });
+    showOutput(config.get('run.placeholder'));
+
+    res.then(
+        (output) => showOutput(output), 
+        ()       => showOutput("Error: Remote Runner not reachable, check your internet connection.")
+    );
 
 
 

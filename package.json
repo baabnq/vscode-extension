@@ -64,6 +64,21 @@
           "type": "boolean",
           "default": false,
           "description": "Save document when running program."
+        },
+        "run.host": {
+          "type": "string",
+          "default": "baabnq.eu.pythonanywhere.com",
+          "description": "Remote Runner domain."
+        },
+        "run.path": {
+          "type": "string",
+          "default": "/run",
+          "description": "Remote Runner api path."
+        },
+        "run.placeholder": {
+          "type": "string",
+          "default": "[Running...]",
+          "description": "Placeholder that's shown in the Output Dialog while the program is running."
         }
       }
     }
