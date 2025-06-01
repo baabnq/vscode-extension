@@ -6,7 +6,7 @@ function getConfig() {
     return vscode.workspace.getConfiguration();
 }
 
-var outputPannel;
+var outputPannel = undefined;
 
 function httpsPost({body, ...options}) {
     return new Promise((resolve,reject) => {
